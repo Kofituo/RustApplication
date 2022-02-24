@@ -1,0 +1,21 @@
+[package]
+name = "rust_lib"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "rust_lib"
+crate-type = ["cdylib"]
+
+[dependencies]
+rifgen = "0.1.51"
+jni-sys = "*"
+#logging
+log = "*"
+log-panics="*"
+android_logger = "*"
+
+[build-dependencies]
+rifgen = "0.1.51"
+flapigen = { git = "https://github.com/Dushistov/flapigen-rs", rev = "d79a34f22e73d90fe9f2423148a7421d39b8ed69" }
