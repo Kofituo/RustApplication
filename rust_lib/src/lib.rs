@@ -1,4 +1,5 @@
 mod java_glue;
+
 pub use crate::java_glue::*;
 
 use android_logger::Config;
@@ -19,5 +20,32 @@ impl RustLog {
         );
         log_panics::init();
         log::info!("Logging initialised from Rust");
+    }
+}
+
+pub struct Inputs {
+    first: i64,
+    second: i64,
+}
+
+impl Inputs {
+    #[generate_interface(constructor)]
+    pub fn new(first: i64, second: i64) -> Inputs {
+        Self {
+            first,
+            second,
+        }
+    }
+    #[generate_interface]
+    pub fn addition(&self) -> i64 {
+        self.first + self.second
+    }
+    #[generate_interface]
+    pub fn subtraction(&self) -> i64 {
+        self.first - self.second
+    }
+    #[generate_interface]
+    pub fn multiplication(&self) -> i64 {
+        self.first * self.second
     }
 }

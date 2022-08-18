@@ -6,3 +6,12 @@ foreign_class!(
 		fn RustLog::initialise_logging(); alias initialiseLogging;
 	}
 );
+foreign_class!(
+	class Inputs {
+		self_type Inputs;
+		constructor Inputs::new(first : i64 , second : i64)->Inputs;
+		fn Inputs::addition(& self)->i64; alias addition;
+		fn Inputs::subtraction(& self)->i64; alias subtraction;
+		fn Inputs::multiplication(& self)->i64; alias multiplication;
+	}
+);
